@@ -24,7 +24,7 @@ pipeline {
     }
     stage('Run tests against the container') {
       steps {
-        sh 'psql postgres://docker:docker@localhost:5432/docker'
+        sh 'psql postgres://docker:docker@postgres:5432/docker'
       }
     }
   }

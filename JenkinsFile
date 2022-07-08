@@ -18,7 +18,8 @@ pipeline {
     }
     stage('Start container') {
       steps {
-        sh 'docker-compose run -d --no-color --service-ports --wait'
+        sh 'docker-compose up -d --no-color --wait'
+        sh 'docker-compose run --service-ports'
         sh 'docker-compose ps'
       }
     }

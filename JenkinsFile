@@ -24,7 +24,7 @@ pipeline {
     }
     stage('Run tests against the container') {
       steps {
-        sh 'psql postgresql://docker:docker@postgres1:5432'
+        sh 'psql postgresql://root:password@postgres1:5432'
       }
     }
   }

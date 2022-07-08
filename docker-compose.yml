@@ -9,7 +9,6 @@ services:
       interval: 10s
       retries: 10
     restart: always
-    network_mode: "host"
     environment:
       - POSTGRES_USER=root
       - POSTGRES_HOST=postgres1

@@ -12,6 +12,7 @@ services:
     network_mode: "host"
     environment:
       - POSTGRES_USER=root
+      - POSTGRES_HOST=postgres1
       - POSTGRES_PASSWORD=password
       - APP_DB_USER=docker
       - APP_DB_PASS=docker

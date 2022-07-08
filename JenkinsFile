@@ -18,19 +18,19 @@ pipeline {
     }
     stage('Start container') {
       steps {
-        sh 'docker-compose run -d --service-ports'
+        sh 'docker-compose up -d --no-color --wait'
         sh 'docker-compose ps'
       }
     }
     stage('Run tests against the container') {
       steps {
-        sh 'psql postgresql://docker:docker@localhost:5432/docker'
+        sh 'psql postgresql://docker:docker@postgres1:5432'
       }
     }
   }
   post {
     always {
-      sh 'docker-compose down --rm --remove-orphans -v'
+      sh 'docker-compose down --remove-orphans -v'
       sh 'docker-compose ps'
     }
   }

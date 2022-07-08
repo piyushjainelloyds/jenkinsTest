@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Start container') {
       steps {
-        sh 'docker-compose up -d --no-color --service-ports --wait'
+        sh 'docker-compose run -d --no-color --service-ports --wait'
         sh 'docker-compose ps'
       }
     }
@@ -30,7 +30,7 @@ pipeline {
   }
   post {
     always {
-      sh 'docker-compose down --remove-orphans -v'
+      sh 'docker-compose down--rm --remove-orphans -v'
       sh 'docker-compose ps'
     }
   }
